@@ -26,8 +26,11 @@ Stand: 2026-09-02, fertig, mit echten Anrufen verifiziert.
 - **Wiederverwendet:** `RC_RingCX_ContactMatch_Route` / `RC_RingCX_CallLog_Entry` (produktunabhängig)
   aus [ringcx-suitecrm-embeddable](https://github.com/PatrickHeller/ringcx-suitecrm-embeddable) —
   dieses Repo enthält sie nicht erneut.
-- **Loader-Verzweigung** (`loadRingCX()`/`loadRingEX()`) lebt in `dist/index.html` im
-  `ringcx-suitecrm-embeddable`-Repo, nicht hier.
+- **Loader-Verzweigung** lebt in `dist/index.html` im `ringcx-suitecrm-embeddable`-Repo, nicht
+  hier: `loadWidget(type)` ist der bestehende Guard (Session-Check, `loaded`-Flag gegen
+  Doppel-Laden), der jetzt je nach `type` (`'ringcx'`/`'ringex'`, von
+  `RC_RingCX_WidgetFlag_Route` geliefert) an die neuen Funktionen `loadRingCX()`/`loadRingEX()`
+  verzweigt.
 
 ## RingCentral-App "SuiteCRMEX"
 
